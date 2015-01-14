@@ -1,8 +1,8 @@
-function addPage(name, ref) {
+function addPage(ref) {
 	var li = document.createElement("li");
 	var newLink = document.createElement("a");
 	newLink.setAttribute("href",ref);
-	newLink.innerHTML = name;
+	newLink.innerHTML = ref;
 	li.appendChild( newLink );
 	return li;
 }
@@ -11,12 +11,17 @@ function addPage(name, ref) {
 var pagelist = document.getElementById("pagelist");
 var ul = document.createElement("ul");
 
-var prototype = addPage("prototype", "prototype");
-ul.appendChild( prototype );
+var pages = [];
 
-pagelist.appendChild(ul);
+var prototype = addPage("prototype");
+var jquery = addPage("jquery");
 
-var li = ul.firstChild;
-var a = li.firstChild;
-a.innerHTML += " - changed!";
+pages.push( prototype );
+pages.push( jquery );
+
+pages.forEach(function(page) {
+	ul.appendChild( page );
+	pagelist.appendChild(ul);
+})
+
 
