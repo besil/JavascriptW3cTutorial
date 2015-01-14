@@ -15,3 +15,8 @@ var prototype = addPage("prototype", "prototype");
 ul.appendChild( prototype );
 
 pagelist.appendChild(ul);
+
+var li = ul.firstChild;
+var a = li.firstChild;
+a.innerHTML += " - changed!";
+
